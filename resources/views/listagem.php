@@ -2,6 +2,7 @@
 <html>
 <head>
 	<link rel="stylesheet" type="text/css" href="/css/app.css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<title>Controle de estoque</title>
 </head>
 <body>
@@ -13,6 +14,11 @@
             <td> <?= $p->valor ?> </td>
             <td> <?= $p->descricao ?> </td>
             <td> <?= $p->quantidade ?> </td>
+            <td>
+            	<a href="/produto/mostra?id=<?= $p->id ?>">
+            		<span class="large material-icons">search</span>
+            	</a>
+            </td>
 		</tr>
 	<?php endforeach ?>
 	</table>
