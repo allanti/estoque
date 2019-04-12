@@ -33,4 +33,24 @@ class ProdutoController extends Controller{
 
 		return redirect('/produtos')->withInput();
 	}
+
+	public function recupera(){
+
+		$id = Request::route('id');
+		$produto = DB::select('select * from produtos where id = ?', [$id]);
+		return view('atualiza')->with('p', $produto[0]);
+	}
+
+	public function atualiza(){
+
+		$id = Request::input('id');
+		$nome = Request::input('nome');
+		$quantidade = Request::input('quantidade');
+		$valor = Request::input('valor');
+		$descricao = Request::input('descricao');
+
+		DB::update('update produtos set nome = ?, quantidade = ?, valor = ?, descricao = ? where id = ?', array($nome, $quantidade, $valor, $descricao, $id));
+
+		return redirect('/produtos');
+	}
 }

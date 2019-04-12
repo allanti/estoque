@@ -14,6 +14,11 @@
             		<span class="large material-icons">search</span>
             	</a>
             </td>
+            <td>
+            	<a href="/produtos/recupera/{{ $p->id }}">
+            		<span class="large material-icons">update</span>
+            	</a>
+            </td>
 		</tr>
 	@endforeach
 	</table>
