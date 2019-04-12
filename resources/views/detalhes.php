@@ -8,7 +8,9 @@
 <body>
 	<h1>Detalhes do <?= $p->nome ?></h1>
 	<ul>
-	    <li> </li>
+	    <li>
+	    	Descrição: <?= $p->descricao ?>
+	    </li>
 	    <li></li>
 	    <li></li>
 	    <li></li>
