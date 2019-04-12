@@ -4,14 +4,13 @@
 	<h1>Detalhes do {{ $p->nome }}</h1>
 	<ul>
 	    <li>
-	    	Valor: {{ $p->descricao }}
+	    	Valor: {{ $p->valor }}
+	    </li>
+	    <li>
+	    	Quantidade: {{ $p->quantidade }}
 	    </li>
 	    <li>
 	    	Descrição: {{ $p->descricao }}
 	    </li>
-	    <li>
-	    	Descrição: {{ $p->descricao }}
-	    </li>
-	    <li></li>
 	</ul>
 @stop

@@ -19,6 +19,11 @@
             		<span class="large material-icons">update</span>
             	</a>
             </td>
+            <td>
+            	<a href="/produtos/excluir/{{ $p->id }}">
+            		<span class="large material-icons">delete_forrever</span>
+            	</a>
+            </td>
 		</tr>
 	@endforeach
 	</table>

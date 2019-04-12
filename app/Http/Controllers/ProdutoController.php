@@ -53,4 +53,13 @@ class ProdutoController extends Controller{
 
 		return redirect('/produtos');
 	}
+
+	public function excluir(){
+
+		$id = Request::route('id');
+
+		DB::delete('delete from produtos where id = ?', [$id]);
+
+		return redirect('/produtos');
+	}
 }
