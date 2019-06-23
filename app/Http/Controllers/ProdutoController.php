@@ -12,8 +12,7 @@ class ProdutoController extends Controller{
 		return view('listagem')->with('produtos', $produtos);
 	}
 
-	public function mostra(){
-		$id = Request::route('id');
+	public function mostra($id){
 		$produto = Produto::find($id);
 		return view('detalhes')->with('p', $produto);
 	}
@@ -28,32 +27,24 @@ class ProdutoController extends Controller{
 		return redirect('/produtos')->withInput();
 	}
 
-	public function recupera(){
+	public function recupera($id){
 
-		$id = Request::route('id');
-		$produto = DB::select('select * from produtos where id = ?', [$id]);
-		return view('atualiza')->with('p', $produto[0]);
+		$produto = Produto::find($id);
+		return view('atualiza')->with('p', $produto);
 	}
 
 	public function atualiza(){
 
-		$id = Request::input('id');
-		$nome = Request::input('nome');
-		$quantidade = Request::input('quantidade');
-		$valor = Request::input('valor');
-		$descricao = Request::input('descricao');
-
-		DB::update('update produtos set nome = ?, quantidade = ?, valor = ?, descricao = ? where id = ?', array($nome, $quantidade, $valor, $descricao, $id));
-
+		$dataForm = Request::all();
+		$produto = Produto::find($dataForm['id']);
+		$produto->update($dataForm);
 		return redirect('/produtos');
 	}
 
-	public function excluir(){
+	public function excluir($id){
 
-		$id = Request::route('id');
-
-		DB::delete('delete from produtos where id = ?', [$id]);
-
+		$produto = Produto::find($id);
+		$produto->delete();
 		return redirect('/produtos');
 	}
 }
