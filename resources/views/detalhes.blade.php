@@ -10,6 +10,9 @@
 	    	Quantidade: {{ $p->quantidade }}
 	    </li>
 	    <li>
+	    	Tamanho: {{ $p->tamanho }}
+	    </li>
+	    <li>
 	    	Descrição: {{ $p->descricao }}
 	    </li>
 	</ul>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Request;
 use App\Produto;
+use Illuminate\Support\Facades\Validator;
 class ProdutoController extends Controller{
 
 	public function lista(){
@@ -22,6 +23,15 @@ class ProdutoController extends Controller{
 	}
 
 	public function adiciona(){
+
+		$validator = Validator::make(
+			['nome' => Request::input('nome')],
+			['nome' => 'required|min:3']
+		);
+
+		if($validator->fails()) {
+			return redirect('/produtos/novo');
+		}
 
 		Produto::create(Request::all());
 		return redirect('/produtos')->withInput();

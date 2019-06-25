@@ -18,6 +18,10 @@
 			<input name="quantidade" class="form-control" value="{{ $p->quantidade }}">
 		</div>
 		<div class="form-group">
+			<label>Tamanho</label>
+			<input name="tamanho" class="form-control" value="{{ $p->tamanho }}">
+		</div>
+		<div class="form-group">
 			<label>Descrição</label>
 			<textarea name="descricao" class="form-control">{{ $p->descricao }}</textarea>
 		</div>
