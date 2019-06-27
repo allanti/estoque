@@ -22,4 +22,9 @@ class ProdutoRequest extends FormRequest
             'tamanho' => 'required|max:100'
         ];
     }
+    public function messages(){
+        return [
+            'required' => 'O :attribute é obrigatorio!'
+        ];
+    }
 }

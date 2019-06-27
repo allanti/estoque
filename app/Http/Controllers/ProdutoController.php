@@ -8,6 +8,11 @@ use App\Produto;
 use App\Http\Requests\ProdutoRequest;
 class ProdutoController extends Controller{
 
+	public function __construct()
+    {
+        $this->middleware('autorizador');
+    }
+
 	public function lista(){
 		$produtos = Produto::all();
 		return view('listagem')->with('produtos', $produtos);
