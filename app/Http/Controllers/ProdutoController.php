@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Request;
 use App\Produto;
+use App\Categoria;
 use App\Http\Requests\ProdutoRequest;
 class ProdutoController extends Controller{
 
@@ -24,7 +25,7 @@ class ProdutoController extends Controller{
 	}
 
 	public function novo(){
-		return view('formulario');
+		return view('formulario')->with('categorias', Categorias::all());
 	}
 
 	public function adiciona(ProdutoRequest $request){

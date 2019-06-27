@@ -35,6 +35,14 @@
 			<label>Descrição</label>
 			<textarea name="descricao" class="form-control"></textarea>
 		</div>
+		<div class="form-group">
+			<label>Categoria</label>
+			<select name="categoria_id" class="form-control">
+				@foreache($categoria as $c)
+				<option value="$c->id">$c->nome</option>
+				@endforeach
+			</select>
+		</div>
 
 		<button class="btn btn btn-success" type="submit">Enviar</button>
 	</div>
